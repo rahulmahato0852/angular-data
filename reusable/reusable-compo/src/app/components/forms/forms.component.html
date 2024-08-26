@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <ng-content select="[head]"></ng-content>
+    <pre>{{form.value | json}}</pre>
+    <pre>{{form.errors | json}}</pre>
+    @for (item of formConfig; track $index) {
+
+    <div *ngIf="item.type === 'text'" class="my-2">
+        <label for="name" class="form-label">{{item.name}}</label>
+        <input [formControlName]="item.name"
+            [ngClass]="form.get(item.name)?.touched ? form.get(item.name)?.errors ?  'is-invalid' : 'is-valid' : ''"
+            type="text" class="form-control" id={{item.name}} [placeholder]="'Enter Your ' + item.name" />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please choose a {{item.name}}.</div>
+    </div>
+
+    <div *ngIf="(item.type === 'radio') && item.options && item.options.length >0" class="">
+        <label [for]="item.name">{{item.name}}</label>
+        <div *ngFor="let o of item.options" class="form-check">
+            <input [formControlName]="item.name" class="form-check-input" type={{item.type}} [value]="o" [id]="o">
+            <label class="form-check-label" [for]="o">
+                {{o}}
+            </label>
+        </div>
+    </div>
+
+    <div *ngIf="(item.type === 'checkbox') && item.options && item.options.length >0" class="">
+        <div [formArrayName]="item.name" class="">
+            <pre>{{form.get('skills')?.value| json}}</pre>
+            <label [for]="item.name">{{item.name}}</label>
+            <div *ngFor="let o of item.options; let i = index" class="form-check">
+                <input [value]="o" class="form-check-input" type={{item.type}} [value]="o" [id]="o">
+                <label class="form-check-label" [for]="o">
+                    {{o}}
+                </label>
+            </div>
+        </div>
+    </div>
+    }
+
+
+    <div class="text-end mt-4 mb-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</form>

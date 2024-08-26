@@ -1,0 +1,19 @@
+{
+  "name": "circuit-braker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.2.0",
+    "@types/opossum": "^8.1.7",
+    "opossum": "^8.1.4",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.4"
+  }
+}

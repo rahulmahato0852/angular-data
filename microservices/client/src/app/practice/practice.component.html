@@ -1,0 +1,20 @@
+<p>practice works!</p>
+<app-pagination (searchval)="handleSearchVal($event)" [count]="count" [limit]="5" [handlePage]="cred">
+    <tr table-head>
+        <th>ID</th>
+        <th>title</th>
+        <th>Desc</th>
+        <th>Rate</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let item of allPosts">
+        <td>{{item._id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.desc}}</td>
+        <td>{{item.rate}}</td>
+        <td>
+            <button type="button" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-primary">Delete</button>
+        </td>
+    </tr>
+</app-pagination>

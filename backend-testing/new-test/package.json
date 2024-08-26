@@ -1,0 +1,27 @@
+{
+  "name": "new-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha  --require  ts-node/register test/**/*.spec.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "exrpess": "^0.0.1-security",
+    "kafkajs": "^2.2.4",
+    "mongoose": "^8.5.3",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.17",
+    "@types/mocha": "^10.0.7",
+    "chai": "4.0",
+    "mocha": "^10.7.3",
+    "nock": "^13.5.5",
+    "nyc": "^17.0.0",
+    "sinon": "^18.0.0"
+  }
+}

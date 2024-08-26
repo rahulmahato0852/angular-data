@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="text-end mt-3">
+        <button type="button" class="btn btn-outline-dark" routerLink="/pagi"> New Pagination</button>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+
+
+
+            <form [formGroup]="postForm" (ngSubmit)="handleSubmit()" class="card mt-4">
+                <div class="card-header"> Add Posts</div>
+                <div class="card-body">
+                    <div class="my-2">
+                        <label for="title" class="form-label">Title</label>
+                        <input formControlName="title" type="text" class="form-control" id="title"
+                            placeholder="Enter title" />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please choose a title.</div>
+                    </div>
+                    <div class="my-2">
+                        <label for="title" class="form-label">Desc</label>
+                        <input formControlName="desc" type="text" class="form-control" id="desc"
+                            placeholder="Enter desc" />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please choose a desc.</div>
+                    </div>
+                    <div class="my-2">
+                        <label for="title" class="form-label">Rate</label>
+                        <input formControlName="rate" type="text" class="form-control" id="rate"
+                            placeholder="Enter rate" />
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">Please choose a Rate.</div>
+                    </div>
+                    <div class="text-end mt-2">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <h1>Pagination</h1>
+
+    <app-pagination [count]="count" [limit]="5" [handlePage]="page">
+        <tr table-head class="">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Desc</th>
+            <th>Rate</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let item of allPosts">
+            <td>{{item._id}}</td>
+            <td>{{item.title}}</td>
+            <td>{{item.desc}}</td>
+            <td>{{item.rate}}</td>
+            <td>
+                <button type="button" class="btn btn-warning">Update</button>
+                <button (click)="handleDelete(item._id)" type="button" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </app-pagination>
+
+
+
+
+
+</div>

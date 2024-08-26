@@ -1,0 +1,23 @@
+<pre>page:{{handlePage.value.page | json}}  limit {{limit}} , count:{{count}}</pre>
+<div class="mb-2 d-flex justify-content-end">
+    <div class="card">
+        <div>
+            <input (input)="handleChange($event)" type="text" class="form-control " id="name"
+                placeholder="Enter Search value" />
+        </div>
+    </div>
+</div>
+<table class="table table-bordered border-3 table-striped table-hover">
+    <thead>
+        <ng-content select="[table-head]"></ng-content>
+    </thead>
+    <tbody>
+        <ng-content></ng-content>
+    </tbody>
+</table>
+<div class="text-end">
+    <button (click)="handlePre()" [disabled]="handlePage.value.page === 0" type="button"
+        class="btn btn-sm mx-2 btn-success">Prev</button>
+    <button (click)="handleNext()" [disabled]="count <= handlePage.value.page *limit + limit" type="button"
+        class="btn btn-sm mx-2 btn-warning">Next</button>
+</div>

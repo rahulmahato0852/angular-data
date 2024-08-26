@@ -1,0 +1,60 @@
+<app-header>
+  <div brand>Test Brand</div>
+  <a links class="nav-link">Hello</a>
+  <a links class="nav-link">Bolo</a>
+  <a links class="nav-link">Bolo</a>
+
+  <!-- <div class="navbar-nav">
+    <a class="nav-link">Bolo</a>
+    <a class="nav-link">Bolo</a>
+    <a class="nav-link">Bolo</a>
+    <a class="nav-link">Bolo</a>
+  </div> -->
+  <button type="button" class="btn btn-outline-danger">Logout</button>
+
+</app-header>
+
+
+
+<div class="my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <app-forms (onSubmit)="handleSubmit($event)" [formConfig]="formConfig">
+              <h3 class="border border-2 broder-black  p-2 " head>Test Form</h3>
+            </app-forms>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class="mt-5"></div>
+<div class="container">
+  <div class="row g-5 mb-4">
+    <div *ngFor="let item of arr" class="col-sm-4">
+      <app-card>
+        <div header>
+          <div>Hello</div>
+        </div>
+
+        <div body>
+          <div>Hello</div>
+        </div>
+
+        <div footer>
+          <div>Hello</div>
+        </div>
+
+      </app-card>
+    </div>
+
+  </div>
+</div>

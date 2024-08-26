@@ -1,0 +1,27 @@
+{
+  "name": "testss",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require ts-node/register test/get-post-api-mocking.spec.ts",
+    "test:coverage": "nyc mocha --require ts-node/register test/get-post-api-mocking.spec.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/chai": "^4.3.17",
+    "@types/mocha": "^10.0.7",
+    "chai": "^4.3.7",
+    "nyc": "^17.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@types/sinon": "^17.0.3",
+    "axios": "^1.7.4",
+    "nock": "^13.5.4",
+    "sinon": "^18.0.0"
+  }
+}
