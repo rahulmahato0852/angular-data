@@ -17,6 +17,16 @@ const getFromConsumer = async () => {
             });
         },
     });
+
+
+
+
+
+
+
+
+
+    
 };
 
 export default { getFromConsumer }
