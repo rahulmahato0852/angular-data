@@ -18,10 +18,28 @@ const runProducer = async (topic: string, data: any) => {
 
 
 
+    console.log("Producer connected");
+    console.log("My topic data ", topic, data);
+
+    await producer.send({
+
+        topic: topic,
+        messages: [{ value: JSON.stringify(data) }]
+    });
+    console.log("success topic publish");
+
+    await producer.disconnect();
+};
+const runProducer2 = async (topic: string, data: any) => {
+    console.log("Producer connection started");
+    await producer.connect();
 
 
 
-    
+
+
+
+
     console.log("Producer connected");
     console.log("My topic data ", topic, data);
 
