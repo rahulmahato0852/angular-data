@@ -5,6 +5,7 @@ import { HostTodosComponent } from './host-todos/host-todos.component';
 
 const routes: Routes = [
   { path: "remote", loadChildren: () => loadRemoteModule("remote", "app").then(a => a.AppModule) },
+  { path: "remote2", loadChildren: () => loadRemoteModule("remote2", "remote2").then(a => a.AppModule) },
   { path: "todos-host", component: HostTodosComponent }
 ];
 

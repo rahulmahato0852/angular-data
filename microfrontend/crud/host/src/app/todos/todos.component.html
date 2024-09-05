@@ -1,0 +1,91 @@
+<div class="container mt-4 ">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+
+            <div class="card">
+              <div class="card-header">Todos</div>
+              <form [formGroup]="todoForm" (ngSubmit)="handleSubmit()" class="card-body">
+                <div class="my-2">
+                  <label for="task" class="form-label">Task</label>
+                  <input [ngClass]="handleClass('task')" formControlName="task" type="text" class="form-control" id="task" placeholder="Enter Your task"/>
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Please choose a task.</div>
+                </div>
+                <div class="my-2">
+                  <label for="desc" class="form-label">Desc</label>
+                  <input  [ngClass]="handleClass('desc')" formControlName="desc" type="text" class="form-control" id="desc" placeholder="Enter Your desc"/>
+                  <div class="valid-feedback">Looks good!</div>
+                  <div class="invalid-feedback">Please choose a desc.</div>
+                </div>
+             
+                <div class="text-end mt-3"  >
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+
+              </form>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+     
+        <tr *ngFor="let item of allTodos">
+            <td>{{item._id}}</td>
+            <td>{{item.task}}</td>
+            <td>{{item.desc}}</td><td>
+                <button data-bs-toggle="modal" data-bs-target="#exampleModal"  (click)="setSelectedTodo(item)" type="button" class="btn btn-warning">Update</button>
+                <button (click)="handleDelete(item._id)" type="button" class="btn btn-danger mx-3">Delete</button>
+            </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+
+
+<!-- update table -->
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+

@@ -8,8 +8,18 @@ import { Store } from '@ngrx/store'
 })
 export class AppComponent {
   title = 'remote2';
-  allTodos: any[] = []
-  constructor(private todosStore: Store<{ todoReducer: any }>) {
+  allTodos: any[] = [];
+  constructor(private todosStore: Store<{ todoReducer:  {
+    todos: any[],
+    error: any
+} }>) {
+    console.log(todosStore);
+    
+    todosStore.select(state => {
+      console.log(state.todoReducer);
+      
+    });
+    
     todosStore.select(state => state.todoReducer.todos).subscribe((data) => {
       this.allTodos = data
     })

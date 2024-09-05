@@ -7,10 +7,8 @@ const kafka = new Kafka({
 
 const consumer = kafka.consumer({ groupId: 'test-group' });
 const getFromConsumer = async () => {
-
     await consumer.connect();
     await consumer.subscribe({ topics: ['execute_payment'], fromBeginning: true });
-
     // const run = consumer.run()) 
     return await consumer.run({
         eachMessage: async ({ topic, partition, message }) => {
